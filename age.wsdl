@@ -7,8 +7,9 @@
         xmlns="http://schemas.xmlsoap.org/wsdl/"
         name="AgeService"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-        >
-    <types>
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+>
+    <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://ageservice/">
             <xs:element name="getAge" type="tns:getAge"/>
             <xs:element name="getAgeResponse" type="tns:getAgeResponse"/>
@@ -23,33 +24,33 @@
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-    </types>
-    <message name="getAge">
+    </wsdl:types>
+    <wsdl:message name="getAge">
         <part name="parameters" element="tns:getAge"/>
-    </message>
-    <message name="getAgeResponse">
+    </wsdl:message>
+    <wsdl:message name="getAgeResponse">
         <part name="parameters" element="tns:getAgeResponse"/>
-    </message>
-    <portType name="AgeService">
-        <operation name="getAge">
-            <input message="tns:getAge"/>
-            <output message="tns:getAgeResponse"/>
-        </operation>
-    </portType>
-    <binding name="AgeServicePortBinding" type="tns:AgeService">
-        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <operation name="getAge">
-            <input>
-                <soap:body use="literal"/>
-            </input>
-            <output>
-                <soap:body use="literal"/>
-            </output>
-        </operation>
-    </binding>
-    <service name="getAge">
-        <port name="AgeServicePort" binding="tns:AgeServicePortBinding">
-            <soap:address location="http://localhost:4848/Age/getAge"/>
-        </port>
-    </service>
+    </wsdl:message>
+    <wsdl:portType name="AgeService">
+        <wsdl:operation name="getAge">
+            <wsdl:input message="tns:getAge"/>
+            <wsdl:output message="tns:getAgeResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AgeServicePortBinding" type="tns:AgeService">
+        <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getAge">
+            <wsdl:input>
+                <wsdlsoap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <wsdlsoap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="getAge">
+        <wsdl:port name="AgeServicePort" binding="tns:AgeServicePortBinding">
+            <wsdlsoap:address location="http://localhost:8080/Age/getAge"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>
