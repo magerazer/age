@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<definitions
+<wsdl:definitions
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
         targetNamespace="http://ageservice/"
         xmlns:tns="http://ageservice/"
         xmlns="http://schemas.xmlsoap.org/wsdl/"
-        name="AgeService">
+        name="AgeService"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        >
     <types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://ageservice/">
             <xs:element name="getAge" type="tns:getAge"/>
@@ -50,4 +52,4 @@
             <soap:address location="http://localhost:4848/Age/getAge"/>
         </port>
     </service>
-</definitions>
+</wsdl:definitions>
